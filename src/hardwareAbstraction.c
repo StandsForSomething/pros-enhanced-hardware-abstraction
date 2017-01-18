@@ -1,3 +1,4 @@
+
 #include "main.h"
 //function prototype for function that shouldn't be used outside of this file
 double getEncoderPriv(sensor encoderParent);
@@ -53,7 +54,7 @@ void initEncoder(encoder *initEncoder, int port1, int port2, bool reversed,
     if(encoderType == TWO_WIRE)
     {
         tempEncoder.port2 = port2;
-        tempEncoder.shaftEncoder = encoderInit(port1, port2, reversed);
+        tempEncoder.shaftEncoder = encoderInit(port1, port2, false);
     }
 
     //if a one wire shaft encoder is being used
@@ -137,7 +138,7 @@ double getSensor(sensor sensor)
     //if the sensor is another type use it's own specific function
     //(sensor.sensorValue() is a pointer)
     else if(sensor.sensorType == OTHER)
-        sensorValue = sensor.sensorValue(sensor);
+        return sensor.sensorValue(sensor);
 
     //if the sensorType is something un expected
     else
