@@ -70,6 +70,7 @@ typedef struct motorGroup
 int motorGroupAdd(motor *motorToAdd, motorGroup *groupToChange);
 void setMotorGroup(motorGroup motorGroup, int speed);
 void setMotor(motor motor, int speed);
+void setMotorBVVC(motor motor, int speed);
 double getSensor(sensor sensor);
 void setOutput(sensor sensor, bool value);
 void initEncoder(encoder *initEncoder, int port1, int port2, bool reversed,

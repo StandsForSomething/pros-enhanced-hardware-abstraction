@@ -110,12 +110,12 @@ void setMotorBVVC(motor motor, int speed)
 {
     if(motor.portType == CORTEX)
     {
-        setMotor(motor, (powerLevelMain() * 100) * -0.0117904 + 147.22);
+        setMotor(motor, (powerLevelMain() / 100) * -0.0117904 + speed);
     }
 
     else if(motor.portType == POWER_EXPANDER)
     {
-        setMotor(motor, (getSensor(powerExpand) / 70) * -0.0117904 + 147.22);
+        setMotor(motor, (getSensor(powerExpand) / 70) * -0.0117904 + speed);
     }
 }
 
