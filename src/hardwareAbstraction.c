@@ -106,6 +106,19 @@ void setMotor(motor motor, int speed)
     motorSet(motor.port, motor.reversed ? -speed : speed);
 }
 
+void setMotorBVVC(motor motor, int speed)
+{
+    if(motor.portType == CORTEX)
+    {
+        setMotor(motor, (powerLevelMain() * 100) * -0.0117904 + 147.22);
+    }
+
+    else if(motor.portType == POWER_EXPANDER)
+    {
+        setMotor(motor, (getSensor(powerExpand) / 70) * -0.0117904 + 147.22);
+    }
+}
+
 void writeDigital(sensor sensor, bool value)
 {
     //if HIGH should be written as LOW and vise versa

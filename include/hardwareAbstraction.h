@@ -1,6 +1,9 @@
 #ifndef HARDWARESETUP_H_
 #define HARDWARESETUP_H_
 
+#define CORTEX 0
+#define POWER_EXPANDER 1
+
 typedef enum sensorType {ANALOG, DIGITAL, DIGITAL_OUT, OTHER}sensorType;
 typedef enum encoderType {IME, TWO_WIRE, ONE_WIRE}encoderType;
 typedef enum encoderGetType {COUNTS, VELOCITY, ROTATIONS, RPM}encoderGetType;
@@ -52,6 +55,7 @@ typedef struct motor
 {
     int port;
     bool reversed;
+    int portType;
 
     //does not need to be set.
     encoder *encoder;
